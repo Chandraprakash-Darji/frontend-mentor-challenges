@@ -9,7 +9,7 @@ The designs were created to the following widths:
 
 ## Colors
 
-### Neutral
+### **Neutral**
 
 - Almost White: hsl(0, 0%, 98%)
 - Medium Gray: hsl(0, 0%, 41%)

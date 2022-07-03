@@ -5,10 +5,10 @@ import styles from "./01introSectionPage.module.css";
 import { useState } from "react";
 const imagesat = "/images/01introSectionPage/";
 const clients = [
-    "client-audiophile.svg",
     "client-databiz.svg",
-    "client-maker.svg",
+    "client-audiophile.svg",
     "client-meet.svg",
+    "client-maker.svg",
 ];
 interface RenderMenuPropType extends menuListType {
     flex: boolean;
@@ -27,17 +27,17 @@ const RenderMenu = ({ menu, flex }: RenderMenuPropType) => {
                     .closest("li")
                     ?.querySelector("ul") as HTMLUListElement;
                 if (!ul) return;
-                let toggleIconEl =  (e.target as HTMLUListElement)
-                .closest("li")
-                ?.querySelector(".toggleIcon")
+                let toggleIconEl = (e.target as HTMLUListElement)
+                    .closest("li")
+                    ?.querySelector(".toggleIcon");
                 if (ul.style.maxHeight) {
-                    ul.setAttribute("style", null);
+                    ul.setAttribute("style", "null");
                     ul?.classList.remove(styles.active);
-                    toggleIconEl?.classList.remove(styles.toggleActive)
+                    toggleIconEl?.classList.remove(styles.toggleActive);
                 } else {
                     ul.style.maxHeight = ul.scrollHeight + 48 + "px";
                     ul?.classList.add(styles.active);
-                    toggleIconEl?.classList.add(styles.toggleActive)
+                    toggleIconEl?.classList.add(styles.toggleActive);
                 }
             }}
         >
@@ -61,6 +61,7 @@ const RenderMenu = ({ menu, flex }: RenderMenuPropType) => {
                                     src={`${imagesat + menuItem.icon}`}
                                     height={menuItem.iconInLeft ? 18 : 7}
                                     width={menuItem.iconInLeft ? 18 : 10}
+                                    alt={menuItem.icon}
                                 />
                             )}
                             <span className="hover:text-[hsl(0_0%_8%)] cursor-pointer">
@@ -71,6 +72,7 @@ const RenderMenu = ({ menu, flex }: RenderMenuPropType) => {
                                     src={`${imagesat + menuItem.icon}`}
                                     height={menuItem.iconInLeft ? 18 : 7}
                                     width={menuItem.iconInLeft ? 18 : 10}
+                                    alt={menuItem.icon}
                                     className={
                                         menuItem.iconInLeft
                                             ? ""
@@ -101,7 +103,7 @@ const IntroSectionDropdown = () => {
                 />
             </Head>
             <div className="font-['Epilogue',sans-serif] min-h-screen overflow-x-hidden">
-                <header className="p-4 py-6 flex w-screen justify-between items-center text-[hsl(0_0%_41%)] border-b select-none">
+                <header className="px-8 p-6 flex w-screen justify-between items-center text-[hsl(0_0%_41%)] select-none fixed bg-[hsl(0_0%_98%)]">
                     <Image
                         src={`${imagesat}logo.svg`}
                         alt="snap"
@@ -137,7 +139,7 @@ const IntroSectionDropdown = () => {
                         } md:hidden`}
                     ></div>
                     <div
-                        className={`flex flex-col md:flex-row md:justify-between absolute h-screen overflow-y-scroll md:overflow-y-visible top-0 bg-[hsl(0_0%_98%)] w-[75%] shadow-xl shadow-black/40 px-8 py-16 md:relative md:h-[1rem] md:shadow-none md:w-full md:bg-white md:py-0 md:px-0 transition-all duration-500 right-0 ${
+                        className={`flex flex-col md:flex-row md:justify-between absolute h-screen overflow-y-scroll md:overflow-y-visible top-0  w-[75%] shadow-xl shadow-black/40 px-8 py-16 md:relative md:h-[1rem] md:shadow-none md:w-full bg-[hsl(0_0%_98%)] md:py-0 md:px-0 transition-all duration-500 right-0 ${
                             mobilemenu ? "translate-x-0" : "translate-x-full"
                         } md:right-auto md:translate-x-0 md:items-center`}
                     >
@@ -148,22 +150,27 @@ const IntroSectionDropdown = () => {
                             <button className="hover:text-[hsl(0_0%_8%)]">
                                 Login
                             </button>
-                            <button className="border-2 border-[hsl(0_0%_41%)] px-6 py-2 rounded-xl hover:text-[hsl(0_0%_8%)] hover:border-[hsl(0_0%_8%)] ">
+                            <button className="border-2 border-[hsl(0_0%_41%)] px-6 py-2 rounded-xl hover:text-[hsl(0_0%_8%)] hover:border-[hsl(0_0%_8%)]">
                                 Register
                             </button>
                         </div>
                     </div>
                 </header>
-                <main className="flex ">
-                    <div className="left">
-                        <h1>Make remote work</h1>
-                        <p>
-                            Get your team in sync, no matter your location.
-                            Streamline processes, create team rituals, and watch
-                            productivity soar.
+                <main className="mx-auto flex min-h-screen xl:p-10 p-20 pt-32 px-10 lg:px-[9rem] xl:px-52 2xl:px-56 gap-10 xl:gap-[3rem] 2xl:gap-48 justify-center items-center flex-col-reverse md:flex-row text-center md:text-left">
+                    <div className="flex-[1_0_0%]">
+                        <h1 className="text-6xl 2xl:text-8xl font-bold my-12">
+                            Make remote work
+                        </h1>
+                        <p className="text-[18px] mb-16">
+                            Get your team in sync, no matter your location.{" "}
+                            <br />
+                            Streamline processes, create team rituals, and{" "}
+                            <br /> watch productivity soar.
                         </p>
-                        <button>Learn more</button>
-                        <div className="brands">
+                        <button className="bg-[hsl(0_0%_8%)] border-2 border-[hsl(0_0%_8%)] text-[hsl(0_0%_98%)] px-7 py-3 rounded-xl hover:bg-[hsl(0_0%_98%)] hover:text-[hsl(0_0%_8%)] transition-all duration-500">
+                            Learn more
+                        </button>
+                        <div className="mt-16 xl:mt-24 flex gap-8 xl:gap-14 flex-wrap items-center justify-center md:justify-start">
                             {clients.map((client, i) => {
                                 return (
                                     <img
@@ -175,9 +182,9 @@ const IntroSectionDropdown = () => {
                             })}
                         </div>
                     </div>
-                    <div className="right">
+                    <div className="w-screen h-[23rem] sm:h-[34rem] md:w-[24rem] xl:h-[36rem] xl:w-[27rem] 2xl:h-[44rem] 2xl:w-[33rem]">
                         <div
-                            className={`${styles.heroImg} h-32 w-32 bg-no-repeat bg-cover`}
+                            className={`${styles.heroImg} h-full w-full bg-no-repeat bg-cover`}
                         >
                             <span className="sr-only">Hero image</span>
                         </div>
