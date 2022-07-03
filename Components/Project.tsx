@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 const Project = () => {
     return (
         <section id="project-section" className="my-5">

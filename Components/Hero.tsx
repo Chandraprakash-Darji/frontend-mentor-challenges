@@ -1,5 +1,3 @@
-import React from "react";
-
 const HeroSection = () => {
   return (
     <div id='home' className="h-screen md:h-[65vh] w-full text-gray-800 dark:text-white bg-cover bg-no-repeat bg-hero-light dark:bg-hero-dark">

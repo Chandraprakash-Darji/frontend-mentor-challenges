@@ -1,0 +1,27 @@
+.heroImg {
+  background-image:
+    url(/images/01introSectionPage/image-hero-mobile.png);
+}
+
+.active {
+  @apply pt-3 pb-0
+}
+
+.toggleActive {
+  @apply rotate-180
+}
+
+@media (min-width: 768px) {
+  .heroImg {
+    background-image:
+      url(/images/01introSectionPage/image-hero-desktop.png);
+  }
+
+  .active {
+    @apply pt-6 pb-6
+  }
+
+  .toggleActive {
+    @apply rotate-0
+  }
+}

@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useEffect } from "react";
 import DarkModeButton from "../Components/DarkModeButton";
 import HeroSection from "../Components/Hero";
@@ -19,6 +20,9 @@ const Home = () => {
 
     return (
         <div className="gradient-bg-welcome-light gradient-bg-welcome-dark min-h-screen text-gray-900 dark:text-gray-50 relative font-sans">
+            <Head>
+                <title>Frontend Mentor Project Showcase</title>
+            </Head>
             <NavBar />
             <HeroSection />
             <DarkModeButton />
