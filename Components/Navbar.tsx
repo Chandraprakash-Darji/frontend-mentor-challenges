@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 
 const avatar = "https://avatars.githubusercontent.com/u/93640141?v=4";
@@ -44,10 +45,12 @@ const NavBar = () => {
             <nav className="border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-800 backdrop-blur bg-white/75 dark:bg-slate-900/75 fixed w-screen z-50">
                 <div className="container flex flex-wrap justify-between items-center mx-auto">
                     <a href="#" className="flex items-center">
-                        <img
+                        <Image
                             src="/c.png"
                             className="mr-3 h-6 sm:h-9"
                             alt="C logo"
+                            width={24}
+                            height={24}
                         />
                         <span className="self-center text-sm md:text-xl font-semibold whitespace-nowrap dark:text-gray-50">
                             ChandraPrakash
@@ -62,10 +65,12 @@ const NavBar = () => {
                             onClick={userMenuClick}
                         >
                             <span className="sr-only">Open user menu</span>
-                            <img
+                            <Image
                                 className="w-8 h-8 rounded-full"
                                 src={avatar}
                                 alt="Chandra Prakash Profile"
+                                width={32}
+                                height={32}
                             />
                         </button>
 

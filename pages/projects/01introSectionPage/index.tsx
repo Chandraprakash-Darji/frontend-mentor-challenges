@@ -1,6 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import menuList, { menuListType, menuObjectType } from "./menu";
+import menuList, {
+    menuListType,
+    menuObjectType,
+} from "../../../public/data/01introSectionPage/menu";
 import styles from "./01introSectionPage.module.css";
 import { useState } from "react";
 const imagesat = "/images/01introSectionPage/";
@@ -115,14 +118,14 @@ const IntroSectionDropdown = () => {
                         onClick={() => setMobilemenu((prev) => !prev)}
                     >
                         {mobilemenu ? (
-                            <img
+                            <Image
                                 src={`${imagesat}icon-close-menu.svg`}
                                 alt="menu"
                                 width={25}
                                 height={25}
                             />
                         ) : (
-                            <img
+                            <Image
                                 src={`${imagesat}icon-menu.svg`}
                                 alt="menu"
                                 width={25}
@@ -137,6 +140,7 @@ const IntroSectionDropdown = () => {
                                 ? "opacity-100 visible"
                                 : "invisible opacity-0"
                         } md:hidden`}
+                        onClick={() => setMobilemenu(false)}
                     ></div>
                     <div
                         className={`flex flex-col md:flex-row md:justify-between absolute h-screen overflow-y-scroll md:overflow-y-visible top-0  w-[75%] shadow-xl shadow-black/40 px-8 py-16 md:relative md:h-[1rem] md:shadow-none md:w-full bg-[hsl(0_0%_98%)] md:py-0 md:px-0 transition-all duration-500 right-0 ${
@@ -173,11 +177,16 @@ const IntroSectionDropdown = () => {
                         <div className="mt-16 xl:mt-24 flex gap-8 xl:gap-14 flex-wrap items-center justify-center md:justify-start">
                             {clients.map((client, i) => {
                                 return (
-                                    <img
-                                        src={imagesat + client}
-                                        alt=""
+                                    <div className="relative w-28 h-12"
                                         key={client + i}
-                                    />
+                                    >
+                                        <Image
+                                            src={imagesat + client}
+                                            alt=""
+                                            layout="fill"
+                                            objectFit="contain"
+                                        />
+                                    </div>
                                 );
                             })}
                         </div>
